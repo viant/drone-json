@@ -1,0 +1,4 @@
+optional_vars:
+  - FILES
+  - DIRS
+  - DEBUG
