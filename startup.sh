@@ -28,24 +28,21 @@ then
     IFS=","
     for d in $DIRS
     do
-        SRC_PATH=`pwd`
-        cd "$d"
-        for v in *
+        for v in $d/*
         do
             if [ -n "$DEBUG" ]
             then
-                cat "$d/$v" | jq
+                cat "$v" | jq
             else
-                cat "$d/$v" | jq -e . > /dev/null 2>&1
+                cat "$v" | jq -e . > /dev/null 2>&1
             fi
             if [[ $? == 0 ]]
             then
-                echo "$d/$v : valid"
+                echo "$v : valid"
             else
-                echo "$d/$v : invalid"
+                echo "$v : invalid"
                 exit 1 
             fi
         done
-        cd "$SRC_PATH"
    done
 fi
