@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Install required packages
-RUN apk --no-cache add jq bash
+RUN apk --no-cache add jq bash python
 
 # Copy startup
 COPY entrypoint.yaml /
