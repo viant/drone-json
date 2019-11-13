@@ -28,7 +28,8 @@ then
     IFS=","
     for d in $DIRS
     do
-        cd $d
+        SRC_PATH=`pwd`
+        cd "$d"
         for v in *
         do
             if [ -n "$DEBUG" ]
@@ -45,5 +46,6 @@ then
                 exit 1 
             fi
         done
+        cd "$SRC_PATH"
    done
 fi
