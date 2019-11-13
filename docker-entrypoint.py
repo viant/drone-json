@@ -31,7 +31,10 @@ if 'optional_vars' in entrypoint:
         plugin_var = "PLUGIN_" + optional_var
         if plugin_var in os.environ:
             os.environ[optional_var] = os.environ[plugin_var]
-        if optional_var in os.environ:
+        if "PLUGIN_DEBUG" in os.environ:
+            if 'secret_vars' in entrypoint:
+                if optional_var in entrypoint['secret_vars']:
+                    continue
             print "%s : %s" % (optional_var, os.environ[optional_var])
 
 if subprocess.call(sys.argv[1:]) is not 0:
