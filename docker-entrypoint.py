@@ -35,7 +35,7 @@ if 'optional_vars' in entrypoint:
             if 'secret_vars' in entrypoint:
                 if optional_var in entrypoint['secret_vars']:
                     continue
-            print "%s : %s" % (optional_var, os.environ[optional_var])
+            print "%s : %s" % (optional_var, os.environ[plugin_var])
 
 if subprocess.call(sys.argv[1:]) is not 0:
     sys.exit(1)
